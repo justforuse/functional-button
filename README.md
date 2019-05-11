@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/functional-button.svg) ![npm](https://img.shields.io/npm/dm/functional-button.svg)](https://www.npmjs.com/package/functional-button)
 [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-A Vue.js Plugin
+Useful functional button for ElementUI
 
 ## Table of contents
 
@@ -54,9 +54,9 @@ Use specific components:
 
 ```javascript
 import 'functional-button/dist/functional-button.css'
-import { Test } from 'functional-button/dist/functional-button.common'
+import { DeferBtn } from 'functional-button/dist/functional-button.common'
 
-Vue.component('test', Test)
+Vue.component('DeferBtn', DeferBtn)
 ```
 
 **⚠️ You may have to setup your bundler to embed the css file in your page.**
@@ -81,7 +81,7 @@ Vue.use(FunctionalButton)
 Use specific components:
 
 ```javascript
-Vue.component('test', FunctionalButton.Test)
+Vue.component('DeferBtn', FunctionalButton.DeferBtn)
 ```
 
 ## Source import
@@ -99,9 +99,9 @@ Use specific components:
 
 ```javascript
 import Vue from 'vue'
-import { Test } from 'functional-button/src'
+import { DeferBtn } from 'functional-button/src'
 
-Vue.component('test', Test)
+Vue.component('DeferBtn', DeferBtn)
 ```
 
 **⚠️ You need to configure your bundler to compile `.vue` files.** More info [in the official documentation](https://vuejs.org/v2/guide/single-file-components.html).
