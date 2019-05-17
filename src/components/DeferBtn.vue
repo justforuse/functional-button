@@ -1,5 +1,8 @@
 <template>
-  <el-button @click="handleAdvanceAction">
+  <el-button
+    v-bind="$attrs"
+    @click="handleAdvanceAction"
+  >
     <span v-if="$slots.default">
       <slot></slot>
       <span v-if="timeDelay">({{ timeDelay }}s)</span>
@@ -27,23 +30,32 @@ export default {
     }
   },
   created () {
-    this.timerHandle = setTimeout(() => {
-      this.doAction()
-    }, this.delay * 1000)
-
-    this.intervalHandle = setInterval(() => {
-      if (this.timeDelay >= 1) {
-        this.timeDelay -= 1
-      } else {
-        this.preAction()
-      }
-    }, 1000)
+    // start loop
+    this.start()
   },
-  destroyed () {
-    clearInterval(this.intervalHandle)
-    clearTimeout(this.timerHandle)
+  beforeDestroy () {
+    this.clear()
   },
   methods: {
+    start () {
+      this.timeDelay = this.delay
+      this.timerHandle = setTimeout(() => {
+        this.doAction()
+      }, this.delay * 1000)
+
+      this.intervalHandle = setInterval(() => {
+        if (this.timeDelay >= 1) {
+          this.timeDelay -= 1
+        } else {
+          this.preAction()
+        }
+      }, 1000)
+    },
+    clear () {
+      clearInterval(this.intervalHandle)
+      clearTimeout(this.timerHandle)
+      this.timeDelay = 0
+    },
     doAction () {
       this.timeDelay = 0
       clearTimeout(this.timerHandle)

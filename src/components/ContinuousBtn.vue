@@ -1,6 +1,11 @@
 <template>
-  <el-button @click="handleAction" @mousedown.native="handleMouseDown" @mouseup.native="handleMouseUp"
-             @mouseout.native="handleMouseOut">
+  <el-button
+    v-bind="$attrs"
+    @click="handleAction"
+    @mousedown.native="handleMouseDown"
+    @mouseup.native="handleMouseUp"
+    @mouseout.native="handleMouseOut"
+  >
     <span v-if="$slots.default">
       <slot></slot>
     </span>
