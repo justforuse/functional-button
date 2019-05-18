@@ -6,12 +6,15 @@ module.exports = {
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
+  globals: {
+    'Vue': true
+  },
   // required to lint *.vue files
   plugins: [
     'html'
   ],
   env: {
-    browser: true,
+    browser: true
   },
   // add your custom rules here
   'rules': {
@@ -21,7 +24,8 @@ module.exports = {
     'generator-star-spacing': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-new': 0,
     // trailing comma
-    'comma-dangle': ['warn', 'never'],
+    'comma-dangle': ['warn', 'never']
   }
 }
