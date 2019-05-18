@@ -4,7 +4,7 @@
     @click="handleAction"
     @mousedown.native="handleMouseDown"
     @mouseup.native="handleMouseUp"
-    @mouseout.native="handleMouseOut"
+    @mouseleave.native="handleMouseLeave"
   >
     <span v-if="$slots.default">
       <slot></slot>
@@ -48,7 +48,7 @@ export default {
       this.pressFlag = false
       clearTimeout(this.timeHandle)
     },
-    handleMouseOut () {
+    handleMouseLeave () {
       this.pressFlag = false
       clearTimeout(this.timeHandle)
     }
